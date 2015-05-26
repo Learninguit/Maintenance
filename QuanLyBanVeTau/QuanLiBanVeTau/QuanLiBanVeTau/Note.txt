@@ -1,0 +1,14 @@
+﻿Lỗi:
+	+ Màn hình đăng nhập khi nhấn thoát thì thoát và trả về lỗi.
+
+Hình thức:
+	+ Màn hình đăng nhập các thông tin cần thiết phải có dấu *, và ngược lại.
+
+Bảo trì:
+	+ CSDL: Sử dụng hoàn toàn store procedure.
+	+ Ngôn ngư: Thống nhất về loại ngôn ngử sử dụng trong chương trình (tên hàm, tên biến)
+	+ GUI: Sử dụng giao diện duyệt theo tab.
+
+Nâng cấp:
+	+ Tối ưu lại bộ nhớ khi sử dụng phần mềm.
+	+ Thêm GUI hiển thị danh sách ghế cho khách hàng.
