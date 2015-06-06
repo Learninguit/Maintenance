@@ -28,10 +28,13 @@ namespace QuanLiBanVeTau.DAL
             while (reader.Read())
             {
                 GiaVeInfo GV = new GiaVeInfo();
-                GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());                
+                //SỬA CHỖ NÀY
+                //GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());   
+                GV.MaGiaVe = reader["MAGIAVE"].ToString();   
                 GV.MaTau = reader["MATAU"].ToString();
                 GV.MaLoaiGhe = reader["MALOAIGHE"].ToString();
-                GV.TenGhe = reader["TENGHE"].ToString();
+                //SỬA CHỖ NÀY
+                //GV.TenGhe = reader["TENGHE"].ToString();
                 GV.DonGia = Convert.ToDouble(reader["DONGIA"].ToString());
                 List_GV.Add(GV);
             }
@@ -41,7 +44,7 @@ namespace QuanLiBanVeTau.DAL
         }
 
 
-        public GiaVeInfo GetGiaVe(string MaGiaVe)
+        public GiaVeInfo GetGiaVeTheoMa(string MaGiaVe)
         {
             List<SqlParameter> paramters = new List<SqlParameter>();
             paramters.Add(new SqlParameter("@MaGiaVe", MaGiaVe));
@@ -53,10 +56,11 @@ namespace QuanLiBanVeTau.DAL
             while (reader.Read())
             {
                 GV = new GiaVeInfo();
-                GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());
+               // GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());
+                GV.MaGiaVe = reader["MAGIAVE"].ToString();   
                 GV.MaTau = reader["MATAU"].ToString();
                 GV.MaLoaiGhe = reader["MALOAIGHE"].ToString();
-                GV.TenGhe = reader["TENGHE"].ToString();
+               // GV.TenGhe = reader["TENGHE"].ToString();
                 GV.DonGia = Convert.ToDouble(reader["DONGIA"].ToString());
 
             }
@@ -77,10 +81,11 @@ namespace QuanLiBanVeTau.DAL
             while (reader.Read())
             {
                 GV = new GiaVeInfo();
-                GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());
+               //GV.MaGiaVe = Convert.ToInt32(reader["MADONGIA"].ToString());
+                GV.MaGiaVe = reader["MAGIAVE"].ToString();   
                 GV.MaTau = reader["MATAU"].ToString();
                 GV.MaLoaiGhe = reader["MALOAIGHE"].ToString();
-                GV.TenGhe = reader["TENGHE"].ToString();
+               // GV.TenGhe = reader["TENGHE"].ToString();
                 GV.DonGia = Convert.ToDouble(reader["DONGIA"].ToString());
 
             }
@@ -94,7 +99,8 @@ namespace QuanLiBanVeTau.DAL
 
             //List<SqlParameter> paramters = new List<SqlParameter>();
             //paramters.Add(new SqlParameter("@MAVE", info.MaVe));
-            string insertCommand = @"INSERT INTO DONGIAVE(MATAU, MALOAIGHE, DONGIA) VALUES('" +
+            string insertCommand = @"INSERT INTO GIAVE(MAGIAVE,MATAU, MALOAIGHE, DONGIA) VALUES('" +
+                info.MaGiaVe + "', '" +
                 info.MaTau + "', '" +
                 info.MaLoaiGhe + "'," +
                 info.DonGia + ")";
@@ -104,19 +110,49 @@ namespace QuanLiBanVeTau.DAL
 
         public void update(GiaVeInfo info)
 		{
-			string updateCommand = "UPDATE DONGIAVE " +
+            //Sửa chỗ này
+			string updateCommand = "UPDATE GIAVE " +
 									"SET MATAU = '" + info.MaTau + "', " +
                                     " MALOAIGHE = '" + info.MaLoaiGhe + "', " +
-                                    " DONGIA = " + info.DonGia +
-									" WHERE MADONGIA = " + info.MaGiaVe;
+                                    " DONGIA = '" + info.DonGia +"' "+
+									" WHERE MAGIAVE = '" + info.MaGiaVe+"' ";
 
 			_provider.executeNonQuery(updateCommand);
-		}
-
+		}       
 		public void delete(GiaVeInfo info)
 		{
-            string deleteCommand = "DELETE FROM DONGIAVE WHERE MADONGIA = " + info.MaGiaVe;
+            //Sửa chỗ này
+            string deleteCommand = "DELETE FROM GIAVE WHERE MAGIAVE = '" + info.MaGiaVe + "'";
 			_provider.executeNonQuery(deleteCommand);
 		}
+        //public string MaTuTang()
+        //{
+        //    SqlConnection cnn = new SqlConnection(@"Data Source=VAIO;Initial Catalog=QUANLYBANVETAU;Integrated Security=True");
+        //    cnn.Open();
+        //    SqlCommand com = new SqlCommand("GetDSGiaVe",cnn);
+        //    com.CommandType = CommandType.StoredProcedure;
+        //    SqlDataAdapter da = new SqlDataAdapter(com);
+        //    DataTable dt =new DataTable();
+        //    da.Fill(dt);
+        //    cnn.Close();
+
+        //    string s = "";
+        //    if (dt.Rows.Count <= 0)
+        //        s = "GV001";
+        //    else
+        //    {
+        //        int k;
+        //        s = "GV";
+        //        k = Convert.ToInt32(dt.Rows[dt.Rows.Count - 1][0].ToString().Substring(2,3));
+        //        k = k + 1;
+        //        if (k < 10)
+        //            s = s + "00";
+        //        else if (k < 100)
+        //            s = s + "0";
+        //        s = s + k.ToString();
+        //    }
+        //    return s;
+
+        //}
     }
 }

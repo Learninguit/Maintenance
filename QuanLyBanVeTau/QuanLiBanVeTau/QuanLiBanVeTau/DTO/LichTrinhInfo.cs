@@ -86,7 +86,9 @@ namespace QuanLiBanVeTau.DTO
     
 
         public LichTrinhInfo()
-        { }
+        { 
+        
+        }
         public LichTrinhInfo(string matau, DateTime ngkhoihanh, DateTime ngden)
         {
             this.MaTau = matau;
@@ -94,5 +96,6 @@ namespace QuanLiBanVeTau.DTO
             this.NgayDen = ngden;
             this.MaLichTrinh = this.MaTau + this.NgayKhoiHanh.Date.Day + this.NgayKhoiHanh.Date.Month + this.NgayKhoiHanh.Hour + this.NgayKhoiHanh.Minute;
         }
+        
     }
 }

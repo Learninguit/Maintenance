@@ -310,6 +310,7 @@
             // 
             // gCtrlLichTrinh
             // 
+            this.gCtrlLichTrinh.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlLichTrinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlLichTrinh.Location = new System.Drawing.Point(0, 0);
             this.gCtrlLichTrinh.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -635,6 +636,7 @@
             // 
             // cmbLichTrinhMaTau
             // 
+            this.cmbLichTrinhMaTau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLichTrinhMaTau.FormattingEnabled = true;
             this.cmbLichTrinhMaTau.Location = new System.Drawing.Point(65, 7);
             this.cmbLichTrinhMaTau.Name = "cmbLichTrinhMaTau";
@@ -670,6 +672,7 @@
             // 
             // gCtrlGiaVe
             // 
+            this.gCtrlGiaVe.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlGiaVe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlGiaVe.Location = new System.Drawing.Point(2, 2);
             this.gCtrlGiaVe.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -708,6 +711,8 @@
             this.gridColumn1.Caption = "Mã giá vé";
             this.gridColumn1.FieldName = "MaGiaVe";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             this.gridColumn1.Width = 115;
             // 
             // gClMaTau
@@ -717,7 +722,7 @@
             this.gClMaTau.FieldName = "MaTau";
             this.gClMaTau.Name = "gClMaTau";
             this.gClMaTau.Visible = true;
-            this.gClMaTau.VisibleIndex = 0;
+            this.gClMaTau.VisibleIndex = 1;
             this.gClMaTau.Width = 195;
             // 
             // lUEDonGiaMaTau
@@ -739,7 +744,7 @@
             this.gClLoaiGhe.FieldName = "MaLoaiGhe";
             this.gClLoaiGhe.Name = "gClLoaiGhe";
             this.gClLoaiGhe.Visible = true;
-            this.gClLoaiGhe.VisibleIndex = 1;
+            this.gClLoaiGhe.VisibleIndex = 2;
             this.gClLoaiGhe.Width = 205;
             // 
             // lUEDonGiaLoaiGhe
@@ -763,7 +768,7 @@
             this.gClDonGia.FieldName = "DonGia";
             this.gClDonGia.Name = "gClDonGia";
             this.gClDonGia.Visible = true;
-            this.gClDonGia.VisibleIndex = 2;
+            this.gClDonGia.VisibleIndex = 3;
             this.gClDonGia.Width = 171;
             // 
             // gridColumn2
@@ -773,7 +778,7 @@
             this.gridColumn2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Right;
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 3;
+            this.gridColumn2.VisibleIndex = 4;
             this.gridColumn2.Width = 48;
             // 
             // btnXoaGiaVe
@@ -878,6 +883,7 @@
             // 
             // cmbDonGiaLoaiGhe
             // 
+            this.cmbDonGiaLoaiGhe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDonGiaLoaiGhe.FormattingEnabled = true;
             this.cmbDonGiaLoaiGhe.Location = new System.Drawing.Point(391, 18);
             this.cmbDonGiaLoaiGhe.Name = "cmbDonGiaLoaiGhe";
@@ -903,6 +909,7 @@
             // 
             // cmbDonGiaMaTau
             // 
+            this.cmbDonGiaMaTau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDonGiaMaTau.FormattingEnabled = true;
             this.cmbDonGiaMaTau.Location = new System.Drawing.Point(52, 18);
             this.cmbDonGiaMaTau.Name = "cmbDonGiaMaTau";
@@ -1080,6 +1087,7 @@
             // 
             // gCtrlNhaGa
             // 
+            this.gCtrlNhaGa.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlNhaGa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlNhaGa.Location = new System.Drawing.Point(0, 0);
             this.gCtrlNhaGa.MainView = this.gVNhaGa;
@@ -1175,6 +1183,7 @@
             // 
             // cmbTinh
             // 
+            this.cmbTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTinh.FormattingEnabled = true;
             this.cmbTinh.Items.AddRange(new object[] {
             "Biên Hòa",
@@ -1186,9 +1195,9 @@
             "Hồ Chí Minh",
             "Khánh Hòa",
             "Nam Định",
+            "Nghệ An",
             "Ninh Bình",
             "Ninh Thuận",
-            "Nghệ An",
             "Phú Yên",
             "Quảng Bình",
             "Quảng Bình",
@@ -1416,6 +1425,7 @@
             // 
             // cmbGaCuoi
             // 
+            this.cmbGaCuoi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGaCuoi.FormattingEnabled = true;
             this.cmbGaCuoi.Location = new System.Drawing.Point(453, 13);
             this.cmbGaCuoi.Name = "cmbGaCuoi";
@@ -1433,6 +1443,7 @@
             // 
             // cmbGaDau
             // 
+            this.cmbGaDau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGaDau.FormattingEnabled = true;
             this.cmbGaDau.Location = new System.Drawing.Point(254, 13);
             this.cmbGaDau.Name = "cmbGaDau";

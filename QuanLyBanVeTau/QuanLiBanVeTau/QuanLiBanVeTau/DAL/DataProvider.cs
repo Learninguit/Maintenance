@@ -17,7 +17,7 @@ namespace QuanLiBanVeTau.DAL
         protected SqlCommand command;
 
 
-        public string ConnectionString = @"Data Source=VUKHANHUIT;Initial Catalog=QUANLYBANVETAU;Integrated Security=True";
+        public string ConnectionString = @"Data Source=VAIO;Initial Catalog=QUANLYBANVETAU;Integrated Security=True";
 
         public void Dispose()
         {

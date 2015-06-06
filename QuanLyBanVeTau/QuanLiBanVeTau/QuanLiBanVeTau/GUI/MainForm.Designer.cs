@@ -204,7 +204,7 @@
             this.tbnRbNhaGa,
             this.btnRbDoanTau});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 37;
+            this.ribbon.MaxItemId = 38;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem4);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -259,7 +259,6 @@
             this.memoEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.memoEdit1.Size = new System.Drawing.Size(1050, 362);
             this.memoEdit1.TabIndex = 1;
-            this.memoEdit1.UseOptimizedRendering = true;
             // 
             // backstageViewClientControl4
             // 

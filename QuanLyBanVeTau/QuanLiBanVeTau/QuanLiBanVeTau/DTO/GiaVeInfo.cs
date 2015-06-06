@@ -8,19 +8,19 @@ namespace QuanLiBanVeTau.DTO
 {
     class GiaVeInfo
     {
-        private int _magiave;
+        private string _magiave;
         private string _matau;
         private string _maloaighe;
-        public string _tenghe;
+   //     public string _tenghe;
         private double _dongia;
 
 
-        public int MaGiaVe
+        public string MaGiaVe
         {
             get { return _magiave; }
             set
             {
-                if (value < 0)
+                if (value == null)
                     throw new Exception("Mã giá vé không được trống");
                 _magiave = value;
             }
@@ -46,11 +46,11 @@ namespace QuanLiBanVeTau.DTO
                 _maloaighe = value;
             }
         }
-        public string TenGhe
-        {
-            get { return _tenghe; }
-            set { _tenghe = value; }
-        }
+        //public string TenGhe
+        //{
+        //    get { return _tenghe; }
+        //    set { _tenghe = value; }
+        //}
         public double DonGia
         {
             get { return _dongia; }

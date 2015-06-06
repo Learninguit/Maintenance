@@ -98,6 +98,7 @@
             this.cmbLoaiTaiKhoan.Name = "cmbLoaiTaiKhoan";
             this.cmbLoaiTaiKhoan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLoaiTaiKhoan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbLoaiTaiKhoan.Size = new System.Drawing.Size(165, 20);
             this.cmbLoaiTaiKhoan.TabIndex = 6;
             // 
@@ -143,6 +144,7 @@
             // 
             // DangNhapForm
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 199);

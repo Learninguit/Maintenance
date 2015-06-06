@@ -30,10 +30,10 @@ namespace QuanLiBanVeTau.BLL
         {
             return data.GetDSGiaVe();
         }
-        public GiaVeInfo GetGiaVe(object MaGiaVe)
+        public GiaVeInfo GetGiaVeTheoMa(object MaGiaVe)
         {
             if (MaGiaVe == null) MaGiaVe = "";
-            return data.GetGiaVe(MaGiaVe.ToString());
+            return data.GetGiaVeTheoMa(MaGiaVe.ToString());
         }
 
         public GiaVeInfo GetGiaVe(object MaTau = null, object MaLoaiGhe = null)
@@ -48,13 +48,15 @@ namespace QuanLiBanVeTau.BLL
 
         public double GetDonGia(string MaGiaVe)
         {
-            return data.GetGiaVe(MaGiaVe).DonGia * 1000;
+            return data.GetGiaVeTheoMa(MaGiaVe).DonGia * 1000;
         }
 
         public double GetGiaVe(string  MaGiaVe, double TiLe)
         {
             return this.GetDonGia(MaGiaVe) * TiLe;
         }
+
+       
         //public List<GiaVeInfo> GetDSGVTheoMLT_T(string MaLichTrinh, string MaToa)
         //{
         //    return data.getDsGVTheoMLT_T(MaLichTrinh, MaToa);

@@ -46,11 +46,12 @@ namespace QuanLiBanVeTau.GUI
             //Chèn dữ liệu vào ga đến
             List<GaTauInfo> listGaDen = gaTauControl.GetDSGaTau();
             listGaDen.Add(gaTauInfo);
-            
-            cmbGaDen.DataSource = listGaDen;
+
+            cmbGaDen.DataSource = listGaDen;            
             cmbGaDen.DisplayMember = "TenGa";
             cmbGaDen.ValueMember = "MaGa";
             cmbGaDen.SelectedIndex = -1;
+
             //Chèn dữ liệu và đoàn tàu
             DoanTauControl doanTauControl = new DoanTauControl();
             DoanTauInfo doanTauInfo = new DoanTauInfo();
@@ -62,7 +63,7 @@ namespace QuanLiBanVeTau.GUI
             cmbMaTau.DisplayMember = "MaTau";
             cmbMaTau.ValueMember = "MaTau";
             cmbMaTau.SelectedIndex = -1;
-            //Chèn dữ liệu vào laoi ghe
+            //Chèn dữ liệu vào loại ghe
             LoaiGheControl loaiGheControl = new LoaiGheControl();
             cmbLoaiToa.DataSource = loaiGheControl.GetDSLoaiGhe();
             cmbLoaiToa.DisplayMember = "MaLoaiGhe";
@@ -70,7 +71,8 @@ namespace QuanLiBanVeTau.GUI
             cmbLoaiToa.SelectedIndex = -1;
 
             this.ClientPanel.Controls.Clear();
-            lichTrinhUC.gCtrlLichTrinh.DataSource = lichTrinhControl.GetDSLichTrinh();
+            //Đã đc load dữ liêu bên LichTrinhUC
+            //lichTrinhUC.gCtrlLichTrinh.DataSource = lichTrinhControl.GetDSLichTrinh();
             this.ClientPanel.Controls.Add(lichTrinhUC);
         }
 
@@ -122,20 +124,22 @@ namespace QuanLiBanVeTau.GUI
 
         public void btnRbDatVe_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //try
-            //{
-            //    veTauUC = new VeTauUC();
-            //    veTauUC.Dock = DockStyle.Fill;
-            //    if (lichTrinhUC.gVLichTrinh.FocusedRowHandle < 0) throw new Exception("Chưa chọn lịch trình");
-            //    veTauUC.choosedLichTrinhInfo = new LichTrinhInfo(lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaGaDi").ToString(), lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaGaDen").ToString(), lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaTau").ToString(), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("NgayKhoiHanh"), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("GioKhoiHanh"), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("NgayDen"), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("GioDen"));
-            //    ClientPanel.Controls.Clear();
-            //    veTauUC.tabVetau.SelectedTabPageIndex = 0;
-            //    ClientPanel.Controls.Add(veTauUC);
-            //}
-            //catch(Exception ex)
-            //{
-            //    XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}           
+            try
+            {
+                veTauUC = new VeTauUC();
+                veTauUC.Dock = DockStyle.Fill;
+                if (lichTrinhUC.gVLichTrinh.FocusedRowHandle < 0) throw new Exception("Chưa chọn lịch trình");
+                //veTauUC.choosedLichTrinhInfo = new LichTrinhInfo(lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaGaDi").ToString(), lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaGaDen").ToString(), lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("MaTau").ToString(), 
+                //                                                (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("NgayKhoiHanh"), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("GioKhoiHanh"), 
+                //                                                (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("NgayDen"), (DateTime)lichTrinhUC.gVLichTrinh.GetFocusedRowCellValue("GioDen"));
+                ClientPanel.Controls.Clear();
+                veTauUC.tabVetau.SelectedTabPageIndex = 0;
+                ClientPanel.Controls.Add(veTauUC);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }           
         }
 
         private void btnRbTraVe_ItemClick(object sender, ItemClickEventArgs e)

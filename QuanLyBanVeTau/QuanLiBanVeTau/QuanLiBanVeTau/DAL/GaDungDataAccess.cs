@@ -23,7 +23,7 @@ namespace QuanLiBanVeTau.DAL
             List<SqlParameter> paramters = new List<SqlParameter>();
            paramters.Add(new SqlParameter("@MaTau", MaTau));
            
-           
+           //Khong co proc
             SqlDataReader reader = (SqlDataReader)_provider.executeQueryParameter("GetDSGaDung",paramters);
 
             List<GaDungInfo> List_GD = new List<GaDungInfo>();
@@ -49,7 +49,7 @@ namespace QuanLiBanVeTau.DAL
             List<SqlParameter> paramters = new List<SqlParameter>();
             paramters.Add(new SqlParameter("@MaTau", MaTau));
             paramters.Add(new SqlParameter("@MaGa", MaGa));
-
+            //Khong co proc
             SqlDataReader reader = (SqlDataReader)_provider.executeQueryParameter("GetGaDung", paramters);
 
             GaDungInfo GD  = null;

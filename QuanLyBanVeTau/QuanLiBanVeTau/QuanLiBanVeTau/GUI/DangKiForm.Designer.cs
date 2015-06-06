@@ -264,6 +264,7 @@
             // 
             // cmbGioiTinh
             // 
+            this.cmbGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGioiTinh.FormattingEnabled = true;
             this.cmbGioiTinh.Location = new System.Drawing.Point(199, 53);
             this.cmbGioiTinh.Name = "cmbGioiTinh";

@@ -219,6 +219,7 @@
             // 
             // gCtrlHanhKhach
             // 
+            this.gCtrlHanhKhach.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlHanhKhach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlHanhKhach.Location = new System.Drawing.Point(2, 21);
             this.gCtrlHanhKhach.MainView = this.gVHanhKhach;
@@ -522,6 +523,7 @@
             // 
             // cmbUuDai
             // 
+            this.cmbUuDai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUuDai.FormattingEnabled = true;
             this.cmbUuDai.Location = new System.Drawing.Point(781, 25);
             this.cmbUuDai.Name = "cmbUuDai";
@@ -540,6 +542,7 @@
             // 
             // cmbSoToa
             // 
+            this.cmbSoToa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSoToa.FormattingEnabled = true;
             this.cmbSoToa.Location = new System.Drawing.Point(75, 60);
             this.cmbSoToa.Name = "cmbSoToa";
@@ -549,6 +552,7 @@
             // 
             // cmbSoGhe
             // 
+            this.cmbSoGhe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSoGhe.FormattingEnabled = true;
             this.cmbSoGhe.Location = new System.Drawing.Point(781, 60);
             this.cmbSoGhe.Name = "cmbSoGhe";
@@ -566,6 +570,7 @@
             // 
             // cmbLoaiGhe
             // 
+            this.cmbLoaiGhe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoaiGhe.FormattingEnabled = true;
             this.cmbLoaiGhe.Location = new System.Drawing.Point(447, 60);
             this.cmbLoaiGhe.Name = "cmbLoaiGhe";
@@ -800,6 +805,7 @@
             // 
             // gCtrlLichTrinh
             // 
+            this.gCtrlLichTrinh.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlLichTrinh.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlLichTrinh.Location = new System.Drawing.Point(2, 21);
             this.gCtrlLichTrinh.MainView = this.gVLichTrinh;

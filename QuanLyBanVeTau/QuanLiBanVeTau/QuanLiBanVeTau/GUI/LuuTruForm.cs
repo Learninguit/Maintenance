@@ -55,27 +55,33 @@ namespace QuanLiBanVeTau.GUI
             {
                 if (cmbDonGiaMaTau.SelectedIndex < 0) throw new Exception("Lỗi!\nChưa chọn mã tàu");              
                 if (cmbDonGiaLoaiGhe.SelectedIndex < 0) throw new Exception("Lỗi!\nChưa chọn loại ghế");
-                if (txtDonGia.Text == String.Empty) throw new Exception("Lỗi!\nChưa nhập đơn giá");
+                if (txtDonGia.Text == String.Empty) throw new Exception("Lỗi!\nChưa nhập đơn giá");                     
                 GiaVeInfo giaVeInfo = new GiaVeInfo();
+                giaVeInfo.MaGiaVe = this.TaoMaGiaVe();
                 giaVeInfo.MaTau = cmbDonGiaMaTau.SelectedValue.ToString();
                 giaVeInfo.MaLoaiGhe = cmbDonGiaLoaiGhe.SelectedValue.ToString();
-                giaVeInfo.DonGia = Convert.ToDouble(txtDonGia.Text);
-                
-                if(giaVeControl.GetGiaVe(giaVeInfo.MaTau,giaVeInfo.MaLoaiGhe) != null)
+                giaVeInfo.DonGia = Convert.ToDouble(txtDonGia.Text);                
+               
+                if (giaVeControl.GetGiaVe(giaVeInfo.MaTau, giaVeInfo.MaLoaiGhe) != null)
                 {
-                    DialogResult rs = XtraMessageBox.Show(this.LookAndFeel, "Đã tồn tại giá vé, bạn có muốn cập nhật", "Thông báo", MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                    DialogResult rs = XtraMessageBox.Show(this.LookAndFeel, "Đã tồn tại giá vé, bạn có muốn cập nhật", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (rs == DialogResult.Yes)
                     {
-                        giaVeInfo.MaGiaVe = giaVeControl.GetGiaVe(giaVeInfo.MaTau,giaVeInfo.MaLoaiGhe).MaGiaVe;
+                        giaVeInfo.MaGiaVe = giaVeControl.GetGiaVe(giaVeInfo.MaTau, giaVeInfo.MaLoaiGhe).MaGiaVe;
+                        //giaVeInfo.MaGiaVe = gVGiaVe.GetFocusedRowCellValue("MaGiaVe").ToString();
                         giaVeControl.update(giaVeInfo);
-                        XtraMessageBox.Show(this.LookAndFeel, "Cập nhật thành công","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show(this.LookAndFeel, "Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 else
                 {
                     giaVeControl.insert(giaVeInfo);
                 }
-                
+                //Thêm chỗ này
+                cmbDonGiaMaTau.SelectedIndex = -1;
+                cmbDonGiaLoaiGhe.SelectedIndex = -1;
+                txtDonGia.Text = "";
+
                 gCtrlGiaVe.DataSource = giaVeControl.GetDSGiaVe();
             }
             catch (Exception ex)
@@ -83,13 +89,45 @@ namespace QuanLiBanVeTau.GUI
                 XtraMessageBox.Show(this.LookAndFeel, ex.Message);
             }
         }
-
+        public string TaoMaGiaVe()
+        {
+            string magiave = string.Empty;
+            //foreach (string s in cmbDonGiaMaTau.Text.Split(' '))
+            //{
+            //    magiave = magiave + Char.ToUpper(s[0]);
+            //}
+            magiave = magiave + cmbDonGiaMaTau.SelectedValue.ToString();
+            foreach (string s in cmbDonGiaLoaiGhe.Text.Split(' '))
+            {
+                magiave = magiave + Char.ToUpper(s[0]);
+            }
+            
+            //string s = "";
+            
+            //if (gVGiaVe.FocusedRowHandle <= 0)
+            //    s = "GV001";
+            //else
+            //{
+            //    int k;
+            //    s = "GV";
+            //    k = Convert.ToInt32(gVGiaVe.GetFocusedRowCellValue("MaGiaVe").ToString().Substring(2, 4));
+            //    k = k + 1;
+            //    if (k < 10)
+            //        s = s + "00";
+            //    else if (k < 100)
+            //        s = s + "0";
+            //    s = s + k.ToString();
+            //}
+            
+           
+            return magiave;
+        }
         private void gVGiaVe_ValidateRow(object sender, ValidateRowEventArgs e)
         {
             try
             {
                 GiaVeInfo giaVeInfo = new GiaVeInfo();
-                giaVeInfo.MaGiaVe = Convert.ToInt32(gVGiaVe.GetFocusedRowCellValue("MaGiaVe"));
+                giaVeInfo.MaGiaVe = gVGiaVe.GetFocusedRowCellValue("MaGiaVe").ToString();
                 giaVeInfo.MaTau = gVGiaVe.GetFocusedRowCellValue("MaTau").ToString();
                 giaVeInfo.MaLoaiGhe = gVGiaVe.GetFocusedRowCellValue("MaLoaiGhe").ToString();
                 giaVeInfo.DonGia = Convert.ToDouble(gVGiaVe.GetFocusedRowCellValue("DonGia"));
@@ -122,7 +160,7 @@ namespace QuanLiBanVeTau.GUI
                 if(XtraMessageBox.Show(this.LookAndFeel, "Xóa giá vé?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
                 {
                     GiaVeInfo giaVeInfo = new GiaVeInfo();
-                    giaVeInfo.MaGiaVe = Convert.ToInt32(gVGiaVe.GetFocusedRowCellValue("MaGiaVe").ToString());
+                    giaVeInfo.MaGiaVe = gVGiaVe.GetFocusedRowCellValue("MaGiaVe").ToString();
                     giaVeControl.delete(giaVeInfo);
                     gCtrlGiaVe.DataSource = giaVeControl.GetDSGiaVe();
                 }
@@ -534,11 +572,6 @@ namespace QuanLiBanVeTau.GUI
             {
                 XtraMessageBox.Show(this.LookAndFeel,"Không xóa được","Lỗi",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        
-
-       
-        
+        }       
     }
 }
