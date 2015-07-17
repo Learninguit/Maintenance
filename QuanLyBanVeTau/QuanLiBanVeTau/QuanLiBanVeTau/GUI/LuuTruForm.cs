@@ -134,7 +134,7 @@ namespace QuanLiBanVeTau.GUI
 
                 if (giaVeControl.GetGiaVe(giaVeInfo.MaTau, giaVeInfo.MaLoaiGhe) != null && giaVeControl.GetGiaVe(giaVeInfo.MaTau, giaVeInfo.MaLoaiGhe).MaGiaVe != giaVeInfo.MaGiaVe)
                 {
-                    if (XtraMessageBox.Show(this.LookAndFeel, "Đã có giá vé này\nBạn có muốn cập nhật?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (XtraMessageBox.Show(this.LookAndFeel, "Đã có giá vé này\nBạn có muốn cập nhật?", "Thông báo76", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         giaVeControl.delete(giaVeInfo);
                         giaVeInfo.MaGiaVe = giaVeControl.GetGiaVe(giaVeInfo.MaTau, giaVeInfo.MaLoaiGhe).MaGiaVe;

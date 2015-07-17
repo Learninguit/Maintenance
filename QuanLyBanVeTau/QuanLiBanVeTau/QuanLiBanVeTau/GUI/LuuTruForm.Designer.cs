@@ -1503,6 +1503,7 @@
             // 
             // gCtrlGaDung
             // 
+            this.gCtrlGaDung.Cursor = System.Windows.Forms.Cursors.Default;
             this.gCtrlGaDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gCtrlGaDung.Location = new System.Drawing.Point(0, 0);
             this.gCtrlGaDung.MainView = this.gVGaDung;
@@ -1657,6 +1658,7 @@
             // 
             // cmbGaDung
             // 
+            this.cmbGaDung.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGaDung.FormattingEnabled = true;
             this.cmbGaDung.Location = new System.Drawing.Point(61, 43);
             this.cmbGaDung.Name = "cmbGaDung";
@@ -1737,6 +1739,7 @@
             // 
             // cmbGaDungMaTau
             // 
+            this.cmbGaDungMaTau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGaDungMaTau.FormattingEnabled = true;
             this.cmbGaDungMaTau.Location = new System.Drawing.Point(61, 16);
             this.cmbGaDungMaTau.Name = "cmbGaDungMaTau";
